@@ -24,11 +24,35 @@ friendfinder.app.post("/api/friends", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newUser = req.body;
-  newUser.routeName = newUser.name.replace(/\s+/g, "").toLowerCase();
+  // console.log(newUser);
+  var compScores = [];
 
-  console.log(newUser);
+  function checkCompatibility(member1, member2) {
+    var totalDifference = 0;
+    for (var i = 0; i < 10; i++) {
+      totalDifference += Math.abs(parseInt(member1['scores[]'][i]) - parseInt(member2['scores[]'][i]));
+    };
+    return totalDifference;
+  };
 
-  characters.push(newUser);
 
-  res.json(newUser);
+  for (var i = 0; i < data.users.length; i++) {
+    var diffScore = checkCompatibility(data.users[i], newUser);
+    var score = {
+      user: i,
+      diffScore: diffScore,
+    };
+    compScores.push(score)
+  }
+
+  var compatibleUser = compScores[0];
+  for (var i = 0; i < compScores.length; i++) {
+    if (compScores[i].diffScore < compatibleUser.diffScore) {
+      compatibleUser = compScores[i];
+    }
+  }
+
+  data.users.push(newUser);
+
+  res.json(data.users[compatibleUser.user]);
 });

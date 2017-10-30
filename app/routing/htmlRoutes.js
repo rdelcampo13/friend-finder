@@ -1,7 +1,7 @@
 // Dependencies
 // =============================================================
-var friendfinder = require(path.join(__dirname, "../../server.js"));
 var path = require("path");
+var friendfinder = require(path.join(__dirname, "../../server.js"));
 
 // Routes
 // =============================================================
