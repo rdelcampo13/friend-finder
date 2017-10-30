@@ -19,6 +19,6 @@ var htmlRoutes = require(path.join(__dirname, "app/routing/htmlRoutes.js"));
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
+app.listen(process.env.PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
