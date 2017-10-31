@@ -7,10 +7,12 @@ var friendfinder = require(path.join(__dirname, "../../server.js"));
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
-friendfinder.app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/home.html"));
-});
+friendfinder.app.get("/:survey?", function(req, res) {
+  var survey = req.params.survey;
 
-friendfinder.app.get("/survey", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/survey.html"));
+  if (survey === "survey") {
+    return res.sendFile(path.join(__dirname, "../public/survey.html"));
+  }
+
+  return res.sendFile(path.join(__dirname, "../public/home.html"));
 });
