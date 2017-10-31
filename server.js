@@ -8,14 +8,13 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
-module.exports = {
-  app,
-};
-
 // Sets up routes
 // =============================================================
 var apiRoutes = require(path.join(__dirname, "app/routing/apiRoutes.js"));
+apiRoutes.setRoute(app);
+
 var htmlRoutes = require(path.join(__dirname, "app/routing/htmlRoutes.js"));
+htmlRoutes.setRoute(app);
 
 // Starts the server to begin listening
 // =============================================================

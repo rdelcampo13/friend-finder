@@ -1,10 +1,10 @@
-// Users (DATA)
+// Friends (DATA)
 // =============================================================
-var users = [
+var friends = [
   {
-    "name": "Derek",
-    "photo": "https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg",
-    "scores[]": [
+    name: "Derek",
+    photo: "https://static.pexels.com/photos/428339/pexels-photo-428339.jpeg",
+    scores: [
     "5",
     "1",
     "4",
@@ -18,9 +18,9 @@ var users = [
     ]
   },
   {
-    "name": "Veronica",
-    "photo": "https://static.pexels.com/photos/415829/pexels-photo-415829.jpeg",
-    "scores[]": [
+    name: "Veronica",
+    photo: "https://static.pexels.com/photos/415829/pexels-photo-415829.jpeg",
+    scores: [
     "4",
     "2",
     "5",
@@ -34,9 +34,9 @@ var users = [
     ]
   },
   {
-    "name": "Rudy",
-    "photo": "https://static.pexels.com/photos/220453/pexels-photo-220453.jpeg",
-    "scores[]": [
+    name: "Rudy",
+    photo: "https://static.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+    scores: [
     "4",
     "2",
     "5",
@@ -51,6 +51,4 @@ var users = [
   }
 ];
 
-module.exports = {
-  users,
-};
+module.exports = friends;

@@ -1,18 +1,21 @@
 // Dependencies
 // =============================================================
 var path = require("path");
-var friendfinder = require(path.join(__dirname, "../../server.js"));
 
-// Routes
-// =============================================================
+module.exports.setRoute = function(app) {
 
-// Basic route that sends the user first to the AJAX Page
-friendfinder.app.get("/:survey?", function(req, res) {
-  var survey = req.params.survey;
+  // Routes
+  // =============================================================
 
-  if (survey === "survey") {
-    return res.sendFile(path.join(__dirname, "../public/survey.html"));
-  }
+  // Basic route that sends the user first to the AJAX Page
+  app.get("/:survey?", function(req, res) {
+    var survey = req.params.survey;
 
-  return res.sendFile(path.join(__dirname, "../public/home.html"));
-});
+    if (survey === "survey") {
+      return res.sendFile(path.join(__dirname, "../public/survey.html"));
+    }
+
+    return res.sendFile(path.join(__dirname, "../public/home.html"));
+  });
+
+};
